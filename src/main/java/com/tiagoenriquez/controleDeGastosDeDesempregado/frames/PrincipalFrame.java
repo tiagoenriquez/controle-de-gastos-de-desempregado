@@ -742,7 +742,7 @@ public final class PrincipalFrame extends javax.swing.JFrame {
 
         contaMenu.setText("Conta");
 
-        atualizarContaMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        atualizarContaMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_MASK));
         atualizarContaMenuItem.setText("Atualizar Conta");
         atualizarContaMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -755,7 +755,7 @@ public final class PrincipalFrame extends javax.swing.JFrame {
 
         informacoesMenu.setText("Informações");
 
-        informacoesMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        informacoesMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.ALT_MASK));
         informacoesMenuItem.setText("ObterInformacoes");
         informacoesMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

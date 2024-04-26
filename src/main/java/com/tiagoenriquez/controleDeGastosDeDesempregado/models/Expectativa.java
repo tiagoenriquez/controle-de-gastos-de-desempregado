@@ -5,6 +5,7 @@
 package com.tiagoenriquez.controleDeGastosDeDesempregado.models;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Date;
 
 /**
@@ -27,6 +28,8 @@ public class Expectativa {
         this.gastosNoMes = gastosPorMes;
         this.hoje = hoje;
         this.calcularDiferenca();
+        this.calcularQuantoPorMes();
+        this.calcularQuantoPorDia();
     }
 
     public Expectativa(BigDecimal quantoPorMes, BigDecimal saldo, BigDecimal gastosPorMes, Date hoje) {
@@ -34,11 +37,31 @@ public class Expectativa {
         this.saldo = saldo;
         this.gastosNoMes = gastosPorMes;
         this.hoje = hoje;
-        this.calcularDiferenca();
+        this.calcularData();
+        this.calcularQuantoPorDia();
+    }
+
+    public Date getData() {
+        return this.data;
+    }
+
+    public BigDecimal getQuantoPorDia() {
+        return this.quantoPorDia;
+    }
+
+    public BigDecimal getQuantoPorMes() {
+        return this.quantoPorMes;
     }
     
     public int getDiferenca() {
         return this.diferenca;
+    }
+    
+    private void calcularData() {
+        int mesesDoIntervalo = this.saldo.divide(this.quantoPorMes, MathContext.DECIMAL128).intValue();
+        int anosAMais = mesesDoIntervalo / 12;
+        int mesesAMais = mesesDoIntervalo % 12;
+        this.data = new Date(this.hoje.getYear() + anosAMais + 1900, this.hoje.getMonth() + mesesAMais, 15);
     }
     
     private void calcularDiferenca() {
@@ -51,8 +74,17 @@ public class Expectativa {
         this.diferenca = diferencaDeAnos * 12 + diferencaDeMeses;
     }
     
-    private void calcularPorMes() {
-        
+    private void calcularQuantoPorDia() {
+        Date ultimoDoMes = new Date(this.hoje.getYear(), this.hoje.getMonth(), 0);
+        int diasRestantesNoMes = ultimoDoMes.getDate() + 1 - this.hoje.getDate();
+        BigDecimal quantoNoMes = this.quantoPorMes.subtract(this.gastosNoMes);
+        if (diasRestantesNoMes != 0) {
+            this.quantoPorDia = quantoNoMes.divide(new BigDecimal(diasRestantesNoMes), MathContext.DECIMAL128);
+        }
+    }
+    
+    private void calcularQuantoPorMes() {
+        this.quantoPorMes = this.saldo.divide(new BigDecimal(this.diferenca), MathContext.DECIMAL128);
     }
     
 }

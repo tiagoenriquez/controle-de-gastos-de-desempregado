@@ -1,0 +1,1 @@
+c:; cd 'c:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado'; & 'C:\Program Files\Java\jdk-11.0.9\bin\java.exe' '@C:\Users\TIAGOE~1\AppData\Local\Temp\cp_k95vvjrxk7jy8fqz7g8jthb31.argfile' 'com.tiagoenriquez.controleDeGastosDeDesempregado.ControleDeGastosDeDesempregado'

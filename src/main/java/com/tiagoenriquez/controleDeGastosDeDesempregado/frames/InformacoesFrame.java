@@ -72,9 +72,35 @@ public class InformacoesFrame extends javax.swing.JFrame {
             double gastosNoMesDouble = this.numberFormat.parse(gastoNoMesString).doubleValue();
             BigDecimal saldo = new BigDecimal(saldoDouble);
             BigDecimal gastosNoMes = new BigDecimal(gastosNoMesDouble);
-            System.out.println(new Expectativa(data, saldo, gastosNoMes, hoje).getDiferenca());
+            Expectativa expectativa = new Expectativa(data, saldo, gastosNoMes, hoje);
+            String quantoPorMesString = this.numberFormat.format(expectativa.getQuantoPorMes());
+            this.quantoPorMesTextField.setText(quantoPorMesString);
+            String quantoPorDiaString = this.numberFormat.format(expectativa.getQuantoPorDia());
+            this.quantoPorDiaTextField.setText(quantoPorDiaString);
         } catch (NumberFormatException numberFormatException) {
             this.mensagemPane.mostrarMensagemDeErro("Ano preenchido de maneira incorreta.");
+        } catch (ParseException ex) {
+            this.mensagemPane.mostrarMensagemDeErro("Erro ao converter dados monetários.");
+        }
+    }
+    
+    private void calcularInformandoQuantoPorMes() {
+        try {
+            String quantoPorMesString = this.quantoPorMesTextField.getText();
+            BigDecimal quantoPorMes = new BigDecimal(quantoPorMesString.replace(",", "."));
+            String saldoString = this.saldoTextField.getText();
+            BigDecimal saldo = new BigDecimal(this.numberFormat.parse(saldoString).doubleValue());
+            String gastoNoMesString = this.gastosNoMesTextField.getText();
+            BigDecimal gastosNoMes = new BigDecimal(this.numberFormat.parse(gastoNoMesString).doubleValue());
+            Date hoje = new Date();
+            Expectativa expectativa = new Expectativa(quantoPorMes, saldo, gastosNoMes, hoje);
+            Date dataDaExpectativa = expectativa.getData();
+            int mesDaExpectativa = dataDaExpectativa.getMonth() + 1;
+            int anoDaExpectativa = dataDaExpectativa.getYear();
+            this.mesesComboBox.setSelectedItem(String.format("%2s", String.valueOf(mesDaExpectativa)).replace(" ", "0"));
+            this.anoTextField.setText(String.valueOf(anoDaExpectativa));
+            String quantoPorDiaString = this.numberFormat.format(expectativa.getQuantoPorDia());
+            this.quantoPorDiaTextField.setText(quantoPorDiaString);
         } catch (ParseException ex) {
             this.mensagemPane.mostrarMensagemDeErro("Erro ao converter dados monetários.");
         }
@@ -100,8 +126,8 @@ public class InformacoesFrame extends javax.swing.JFrame {
         saldoTextField = new javax.swing.JLabel();
         gastosNoMesTextField = new javax.swing.JLabel();
         quantoPorMesTextField = new javax.swing.JTextField();
-        quantoPorDiaTextField = new javax.swing.JTextField();
         calcularButton = new javax.swing.JButton();
+        quantoPorDiaTextField = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Informações");
@@ -149,8 +175,11 @@ public class InformacoesFrame extends javax.swing.JFrame {
         gastosNoMesTextField.setPreferredSize(new java.awt.Dimension(176, 32));
 
         quantoPorMesTextField.setPreferredSize(new java.awt.Dimension(176, 32));
-
-        quantoPorDiaTextField.setPreferredSize(new java.awt.Dimension(176, 32));
+        quantoPorMesTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcularInformandoQuantoPorMes(evt);
+            }
+        });
 
         calcularButton.setText("Calcular quanto posso gastar");
         calcularButton.setPreferredSize(new java.awt.Dimension(416, 32));
@@ -164,6 +193,8 @@ public class InformacoesFrame extends javax.swing.JFrame {
                 calcularKeyPressed(evt);
             }
         });
+
+        quantoPorDiaTextField.setPreferredSize(new java.awt.Dimension(176, 32));
 
         javax.swing.GroupLayout informacoesPanelLayout = new javax.swing.GroupLayout(informacoesPanel);
         informacoesPanel.setLayout(informacoesPanelLayout);
@@ -219,7 +250,7 @@ public class InformacoesFrame extends javax.swing.JFrame {
                     .addComponent(quantoPorMesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantoPorMesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
-                .addGroup(informacoesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(informacoesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantoPorDiaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
@@ -264,6 +295,11 @@ public class InformacoesFrame extends javax.swing.JFrame {
             this.calcular();
         }
     }//GEN-LAST:event_calcularKeyPressed
+
+    private void calcularInformandoQuantoPorMes(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularInformandoQuantoPorMes
+        // TODO add your handling code here:
+        this.calcularInformandoQuantoPorMes();
+    }//GEN-LAST:event_calcularInformandoQuantoPorMes
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoTextField;
@@ -274,7 +310,7 @@ public class InformacoesFrame extends javax.swing.JFrame {
     private javax.swing.JPanel informacoesPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> mesesComboBox;
-    private javax.swing.JTextField quantoPorDiaTextField;
+    private javax.swing.JLabel quantoPorDiaTextField;
     private javax.swing.JLabel quantoPorMesLabel;
     private javax.swing.JTextField quantoPorMesTextField;
     private javax.swing.JLabel saldoLabel;

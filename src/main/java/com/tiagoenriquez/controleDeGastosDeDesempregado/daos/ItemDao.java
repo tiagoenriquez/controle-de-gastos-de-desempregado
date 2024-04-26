@@ -39,7 +39,7 @@ public class ItemDao extends Dao{
         } catch (SQLException sQLException) {
             throw new Exception("Erro ao atualizar item:\n" + sQLException.getSQLState());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -57,7 +57,7 @@ public class ItemDao extends Dao{
             throw new Exception("Erro ao atualizar gênero:\n" + 
                     sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -74,7 +74,7 @@ public class ItemDao extends Dao{
             throw new Exception("Erro ao excluir item:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -95,7 +95,7 @@ public class ItemDao extends Dao{
             throw new SQLException("Erro ao inserir item:\n" + 
                     exception.getMessage());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -122,7 +122,7 @@ public class ItemDao extends Dao{
         } catch (SQLException exception) {
             throw new Exception("Erro ao listar itens:\n" + exception.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     
@@ -145,7 +145,7 @@ public class ItemDao extends Dao{
             throw new Exception("Erro ao listar gêneros:\n" 
                     + exception.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     
@@ -172,7 +172,7 @@ public class ItemDao extends Dao{
             throw new Exception("Erro ao procurar o item:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     

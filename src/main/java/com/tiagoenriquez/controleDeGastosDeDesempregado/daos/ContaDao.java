@@ -38,7 +38,7 @@ public class ContaDao extends Dao {
             throw new Exception("Erro ao atualizar conta:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -64,7 +64,7 @@ public class ContaDao extends Dao {
             throw new Exception("Erro ao procurar conta:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     

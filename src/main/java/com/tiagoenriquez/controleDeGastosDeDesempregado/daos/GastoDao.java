@@ -43,7 +43,7 @@ public class GastoDao extends Dao {
             throw new Exception("Erro ao atualizar gasto:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -60,7 +60,7 @@ public class GastoDao extends Dao {
             throw new Exception("Erro ao excluir gasto:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -83,7 +83,7 @@ public class GastoDao extends Dao {
             throw new Exception("Erro ao inserir gasto:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection);
+            MyConnection.closeConnection(connection, statement);
         }
     }
     
@@ -108,7 +108,7 @@ public class GastoDao extends Dao {
             throw new Exception("Erro ao listar os meses:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     
@@ -143,7 +143,7 @@ public class GastoDao extends Dao {
             throw new Exception("Erro ao listar gastos:\n" 
                     + exception.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     
@@ -174,7 +174,7 @@ public class GastoDao extends Dao {
             throw new Exception("Erro ao procurar o gasto:\n" 
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     
@@ -198,7 +198,7 @@ public class GastoDao extends Dao {
             throw new Exception("Erro ao obter soma dos valores:\n"
                     + sQLException.getMessage());
         } finally {
-            MyConnection.closeConnection(connection, resultSet);
+            MyConnection.closeConnection(connection, statement, resultSet);
         }
     }
     
