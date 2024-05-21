@@ -5,6 +5,8 @@
 package com.tiagoenriquez.controleDeGastosDeDesempregado.frames;
 
 
+import com.tiagoenriquez.controleDeGastosDeDesempregado.clipboards.GastoClipboard;
+import com.tiagoenriquez.controleDeGastosDeDesempregado.clipboards.ItemClipboard;
 import com.tiagoenriquez.controleDeGastosDeDesempregado.models.Conta;
 import com.tiagoenriquez.controleDeGastosDeDesempregado.models.Gasto;
 import com.tiagoenriquez.controleDeGastosDeDesempregado.models.Item;
@@ -170,6 +172,26 @@ public final class PrincipalFrame extends javax.swing.JFrame {
             this.limparCampos();
         } catch (Exception ex) {
             this.mensagemPane.mostrarMensagemDeErro(ex.getMessage());
+        }
+    }
+    
+    private void copiarGastos() {
+        try {
+            GastoClipboard gastoClipboard = new GastoClipboard();
+            gastoClipboard.copiar();
+            this.mensagemPane.mostrarMensagemDeSucesso("Gastos copiados com sucesso.");
+        } catch (Exception exception) {
+            this.mensagemPane.mostrarMensagemDeErro(exception.getMessage());
+        }
+    }
+    
+    private void copiarItens() {
+        try {
+            ItemClipboard itemClipboard = new ItemClipboard();
+            itemClipboard.copiar();
+            this.mensagemPane.mostrarMensagemDeSucesso("Itens copiados com sucesso.");
+        } catch (Exception exception) {
+            this.mensagemPane.mostrarMensagemDeErro(exception.getMessage());
         }
     }
     
@@ -371,6 +393,9 @@ public final class PrincipalFrame extends javax.swing.JFrame {
         atualizarContaMenuItem = new javax.swing.JMenuItem();
         informacoesMenu = new javax.swing.JMenu();
         informacoesMenuItem = new javax.swing.JMenuItem();
+        copiaMenu = new javax.swing.JMenu();
+        copiarGastoMenuItem = new javax.swing.JMenuItem();
+        copiarItemMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Controle de Gastos");
@@ -766,6 +791,28 @@ public final class PrincipalFrame extends javax.swing.JFrame {
 
         menuBar.add(informacoesMenu);
 
+        copiaMenu.setText("Copiar");
+
+        copiarGastoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        copiarGastoMenuItem.setText("Gastos");
+        copiarGastoMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copiarGastos(evt);
+            }
+        });
+        copiaMenu.add(copiarGastoMenuItem);
+
+        copiarItemMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        copiarItemMenuItem.setText("Itens");
+        copiarItemMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copiarItens(evt);
+            }
+        });
+        copiaMenu.add(copiarItemMenuItem);
+
+        menuBar.add(copiaMenu);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -915,6 +962,16 @@ public final class PrincipalFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_abrirInformacoesFrame
 
+    private void copiarGastos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiarGastos
+        // TODO add your handling code here:
+        this.copiarGastos();
+    }//GEN-LAST:event_copiarGastos
+
+    private void copiarItens(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiarItens
+        // TODO add your handling code here:
+        this.copiarItens();
+    }//GEN-LAST:event_copiarItens
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem atualizarContaMenuItem;
     private javax.swing.JButton atualizarGastoButton;
@@ -922,6 +979,9 @@ public final class PrincipalFrame extends javax.swing.JFrame {
     private javax.swing.JButton cadastrarGastoButton;
     private javax.swing.JButton cadastrarItemButton;
     private javax.swing.JMenu contaMenu;
+    private javax.swing.JMenu copiaMenu;
+    private javax.swing.JMenuItem copiarGastoMenuItem;
+    private javax.swing.JMenuItem copiarItemMenuItem;
     private javax.swing.JLabel dataGastoLabel;
     private javax.swing.JButton excluirGastoButton;
     private javax.swing.JButton excluirItemButton;

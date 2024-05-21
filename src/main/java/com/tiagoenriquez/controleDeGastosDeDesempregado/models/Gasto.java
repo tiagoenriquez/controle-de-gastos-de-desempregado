@@ -115,6 +115,10 @@ public class Gasto {
         return new GastoDao().listarMeses();
     }
     
+    public static List<Gasto> todos() throws Exception {
+        return new GastoDao().listar();
+    }
+    
     public static void atualizar(int id, Date data, BigDecimal valor, int itemId) throws Exception {
         Timestamp agora = Timestamp.valueOf(LocalDateTime.now());
         Gasto gasto = new Gasto(id, data, valor, itemId, false, null, agora);

@@ -87,6 +87,36 @@ public class GastoDao extends Dao {
         }
     }
     
+    public List<Gasto> listar() throws Exception {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = this.connection;
+            String query = "select * from gastos";
+            statement = connection.prepareStatement(query);
+            resultSet = statement.executeQuery();
+            List<Gasto> gastos = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("gastos.id");
+                Date data = resultSet.getDate("gastos.data");
+                BigDecimal valor = resultSet.getBigDecimal("gastos.valor");
+                int itemId = resultSet.getInt("gastos.item_id");
+                boolean busca = true;
+                Timestamp createdAt = resultSet.getTimestamp("gastos.created_at");
+                Timestamp updatedAt = resultSet.getTimestamp("gastos.updated_at");
+                Gasto gasto = new Gasto(id, data, valor, itemId, busca, createdAt, updatedAt);
+                gastos.add(gasto);
+            }
+            return gastos;
+        } catch (SQLException sQLException) {
+            throw new Exception("Erro ao listar gastos:\n" 
+                    + sQLException.getMessage());
+        } finally {
+            MyConnection.closeConnection(connection, statement, resultSet);
+        }
+    }
+    
     public List<java.util.Date> listarMeses() throws Exception {
         Connection connection = null;
         PreparedStatement statement = null;

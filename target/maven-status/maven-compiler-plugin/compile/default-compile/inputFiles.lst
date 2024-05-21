@@ -1,14 +1,17 @@
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/frames/PrincipalFrame.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/daos/ContaDao.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/frames/InformacoesFrame.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/frames/ContaFrame.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/utils/MyConnection.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/daos/Dao.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/frames/MensagemPane.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/models/Gasto.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/models/Item.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/daos/GastoDao.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/daos/ItemDao.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/models/Expectativa.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/models/Conta.java
-/home/tiago/NetBeansProjects/controle-de-gastos-de-desempregado/src/main/java/com/tiagoenriquez/controleDeGastosDeDesempregado/ControleDeGastosDeDesempregado.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\models\Gasto.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\daos\Dao.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\daos\GastoDao.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\daos\ContaDao.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\daos\ItemDao.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\ControleDeGastosDeDesempregado.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\models\Expectativa.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\clipboards\GastoClipboard.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\frames\PrincipalFrame.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\clipboards\MyClipboard.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\utils\MyConnection.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\frames\MensagemPane.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\frames\ContaFrame.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\models\Item.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\models\Conta.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\frames\InformacoesFrame.java
+C:\Users\Tiago Enriquez Tachy\Documents\NetBeansProjects\controle-de-gastos-de-desempregado\src\main\java\com\tiagoenriquez\controleDeGastosDeDesempregado\clipboards\ItemClipboard.java
